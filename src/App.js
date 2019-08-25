@@ -5,9 +5,9 @@
   class App extends Component {
     state = {
       persons: [
-        { name: 'Abc', age: 23},
-        { name: 'Lmn', age: 24},
-        { name: 'Zyx', age: 25}
+        { id: '123', name: 'Abc', age: 23},
+        { id: '321', name: 'Lmn', age: 24},
+        { id: '213', name: 'Zyx', age: 25}
       ],
       showPersons: false
     };
@@ -60,7 +60,12 @@
         persons = (
           <div>
               {this.state.persons.map((person, index) => {
-                return <Person name={person.name} age={person.age} click={() => {this.deletePersonHandler(index)}}/>
+                return <Person 
+                        name={person.name} 
+                        age={person.age} 
+                        click={() => {this.deletePersonHandler(index)}}
+                        key={person.id}
+                      />
               })}
             </div> 
         );
