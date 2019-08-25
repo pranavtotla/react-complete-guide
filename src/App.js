@@ -39,6 +39,12 @@
       this.setState({showPersons: !toShow});
     }
 
+    deletePersonHandler = index => {
+      const persons = this.state.persons;
+      persons.splice(index, 1);
+      this.setState(persons);
+    }
+
 
     render() {
       const style = {
@@ -54,9 +60,9 @@
       if(this.state.showPersons){
         persons = (
           <div>
-              <Person name={this.state.persons[0].name} age={this.state.persons[0].age} />
-              <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchNameHandler.bind(this, 'withBind')} changed={this.nameChangeHandler}>Hobbies: cooking</Person>
-              <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+              {this.state.persons.map(person => {
+                return <Person name={person.name} age={person.age} click={this.deletePersonHandler}/>
+              })}
             </div> 
         );
       }
