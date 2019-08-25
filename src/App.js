@@ -1,4 +1,5 @@
   import React, { Component } from 'react';
+  import Radium from 'radium';
   import './App.css';
   import Person from './Person/Person';
 
@@ -57,7 +58,11 @@
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        ':hover': {
+          'background-color': 'lightgreen',
+          color: 'black'
+        }
       }
 
       let persons = null;
@@ -77,6 +82,10 @@
             </div> 
         );
         style['background-color'] = 'red';
+        style[':hover'] = {
+          'background-color': 'salmon',
+          color: 'black'
+        }
       }
 
       const classes = [];
@@ -99,7 +108,7 @@
       //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
     }
   }
-  export default App;
+  export default Radium(App);
 
   /*
   const App = (props) => {
