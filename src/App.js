@@ -22,13 +22,18 @@
       })
     }
 
-    nameChangeHandler = (event) => {
+    nameChangeHandler = (event, id) => {
+      const personIndex = this.state.persons.findIndex(person => {
+        return person.id === id;
+      });
+      const person = {...this.state.persons[personIndex]};
+      person.name = event.target.value;
+
+      const persons = [...this.state.persons];
+      persons[personIndex] = person;
+
       this.setState({
-        persons: [
-          { name: 'Abc', age: 23},
-          { name: event.target.value, age: 24},
-          { name: 'Zyx', age: 26}
-        ]
+        persons: persons
       })
     }
 
@@ -65,6 +70,7 @@
                         age={person.age} 
                         click={() => {this.deletePersonHandler(index)}}
                         key={person.id}
+                        changed={(event) =>{this.nameChangeHandler(event, person.id)}}
                       />
               })}
             </div> 
