@@ -33,16 +33,18 @@
     }
 
     togglePersonHandler = () => {
-      console.log('Inside')
       const toShow = this.state.showPersons;
-      console.log('to show',toShow)
       this.setState({showPersons: !toShow});
     }
 
     deletePersonHandler = index => {
-      const persons = this.state.persons;
+      console.log('Inside');
+      //const persons = this.state.persons.slice();
+      const persons = [...this.state.persons];
+      console.log('Before', persons);
       persons.splice(index, 1);
-      this.setState(persons);
+      console.log('After', persons);
+      this.setState({persons: persons});
     }
 
 
