@@ -38,12 +38,9 @@
     }
 
     deletePersonHandler = index => {
-      console.log('Inside');
       //const persons = this.state.persons.slice();
       const persons = [...this.state.persons];
-      console.log('Before', persons);
       persons.splice(index, 1);
-      console.log('After', persons);
       this.setState({persons: persons});
     }
 
@@ -62,8 +59,8 @@
       if(this.state.showPersons){
         persons = (
           <div>
-              {this.state.persons.map(person => {
-                return <Person name={person.name} age={person.age} click={this.deletePersonHandler}/>
+              {this.state.persons.map((person, index) => {
+                return <Person name={person.name} age={person.age} click={() => {this.deletePersonHandler(index)}}/>
               })}
             </div> 
         );
