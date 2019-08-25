@@ -52,7 +52,8 @@
 
     render() {
       const style = {
-        backgroundColor: 'white',
+        'background-color': 'green',
+        color: 'white',
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
@@ -75,6 +76,7 @@
               })}
             </div> 
         );
+        style['background-color'] = 'red';
       }
 
 
