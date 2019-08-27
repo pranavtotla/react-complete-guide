@@ -59,10 +59,6 @@
         border: '1px solid blue',
         padding: '8px',
         cursor: 'pointer',
-        ':hover': {
-          'background-color': 'lightgreen',
-          color: 'black'
-        }
       }
 
       let persons = null;
@@ -82,10 +78,6 @@
             </div> 
         );
         style['background-color'] = 'red';
-        style[':hover'] = {
-          'background-color': 'salmon',
-          color: 'black'
-        }
       }
 
       const classes = [];
@@ -98,19 +90,17 @@
 
 
       return (
-        <StyleRoot>
           <div className="App">
             <h1>Hi, I'm a react app.</h1>
             <p className={classes.join(' ')}>This works too!</p>
             <button style={style} onClick={this.togglePersonHandler}>Toggle Persons</button>
             {persons}
           </div>
-        </StyleRoot>
       );
       //return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
     }
   }
-  export default Radium(App);
+  export default App;
 
   /*
   const App = (props) => {
