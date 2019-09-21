@@ -11,7 +11,7 @@ class Person extends Component {
     </div>
     }
 }
-
+export default Person;
 
 /*const person = (props) => {
     return(
@@ -21,6 +21,6 @@ class Person extends Component {
             <input type="text" onChange = {props.changed} value={props.name}/>
         </div>
     );
-};*/
+};
 
-export default Person;
+export default person;*/
